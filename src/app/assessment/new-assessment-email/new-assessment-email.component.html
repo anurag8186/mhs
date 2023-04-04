@@ -1,0 +1,235 @@
+<ng-template #templateName class="container-fluid PageBody">
+  <div class="row">
+    <div class="col-12 PageHeading">
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="isValidData; else templateName" class="container-fluid PageBody">
+  <app-common-header headerPageTitle="{{ headerPageTitle }}"></app-common-header>
+
+  <div *ngIf="this.result">
+    <div class="row">
+      <!-- <div class="col-8 MsgText">Select the assessment method to start the new assessment</div> -->
+      <div class="col-12 text-right" style="margin-top: 5px;">
+        <a href="#" routerLink="/NewAssesment">
+          <button type="button" class="btn btn-main btn-darkB lightBMargin">
+            <i class="fa fa-plus-circle"></i>New Assessment
+          </button>
+        </a>
+        <a href="#" routerLink="/assesmentHistory">
+          <button type="button" class="btn btn-main btn-darkB float-right"><i class="fa fa-history"></i>Assessment
+            History</button>
+        </a>
+      </div>
+      <div class="col-12 PageHeading">
+        <h3>Add Rater</h3>
+      </div>
+    </div>
+
+    <form [formGroup]="addRaterForm" (ngSubmit)="onSubmit()" autocomplete="on">
+      <div class="row">
+        <div class="col">
+          <div class="FormTile pt-2">
+            <div class="row">
+              <div class="col-3">
+                <div class="form-group">
+                  <mat-label>Description</mat-label>
+                  <mat-select placeholder="Description" class="form-control" #description
+                    (selectionChange)="onSelectedDescription($event)" formControlName="description"
+                    [ngClass]="{'is-invalid': submitted && f.description.errors }">
+                    <mat-option *ngFor="let option of descriptionOptions" [value]="option">
+                      {{option['name']}}
+                    </mat-option>
+                  </mat-select>
+
+                  <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                    <div *ngIf="f.description.errors.required">
+                      Description is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="form-group">
+                  <label>Rater Type</label>
+                  <select class="form-control" #ratertype (change)="onSelectedRaterType($event, ratertype.value)"
+                    formControlName="ratertype" [ngClass]="{ 'is-invalid': submitted && f.ratertype.errors }">
+                    <option value="" disabled>Rater Type</option>
+                    <option *ngFor="let option of raterOptions" [ngValue]="option">
+                      {{option['rater']}}
+                    </option>
+                  </select>
+                  <div *ngIf="submitted && f.ratertype.errors" class="invalid-feedback">
+                    <div *ngIf="f.ratertype.errors.required">
+                      Rater Type is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="form-group">
+                  <mat-label>Admin Options</mat-label>
+                  <mat-select multiple placeholder="Admin Options" #adminOption class="form-control"
+                    (change)="onSelectedAdminOption(adminOption.value)" formControlName="adminOption"
+                    [ngClass]="{ 'is-invalid': submitted && f.adminOption.errors }">
+
+                    <!-- <div class="select-all">
+                      <mat-checkbox [(ngModel)]="allSelected" [ngModelOptions]="{standalone: true}"
+                        (change)="toggleAllSelection()">Select All</mat-checkbox>
+                    </div> -->
+
+                    <mat-select-trigger>
+                      <span *ngIf="adminOption.value?.length > 1" class="example-additional-selection">
+                        {{adminOption.value?.length === 2 ? 'Default' : 'Default'}}
+                      </span>
+                      <span *ngIf="adminOption.value?.length == 1" class="example-additional-selection">
+                        {{adminOption.value?.length === 1 ? 'Include' : 'Include'}}
+                      </span>
+                      <span *ngIf="adminOption.value?.length === 1">
+                        {{adminOption.value?.length === 1 ? adminOption.value[0].name : ''}}
+                      </span>
+                    </mat-select-trigger>
+
+                    <!-- <mat-option (click)="optionClick()" *ngFor="let option of adminOptions" [value]="option"> -->
+                    <mat-option *ngFor="let option of adminOptions" [value]="option">
+                      {{option['name']}}
+                    </mat-option>
+                  </mat-select>
+
+                  <div *ngIf="submitted && f.adminOption.errors" class="invalid-feedback">
+                    <div *ngIf="f.adminOption.errors.required">
+                      Admin Option is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="form-group">
+                  <label>Language</label>
+                  <select class="form-control" #language (change)="onSelectedLanguage(language.value)"
+                    formControlName="language" [ngClass]="{ 'is-invalid': submitted && f.language.errors }">
+                    <option value="" disabled>Language</option>
+                    <option *ngFor="let option of langOptions" [ngValue]="option">
+                      {{option['name']}}
+                    </option>
+                  </select>
+                  <div *ngIf="submitted && f.language.errors" class="invalid-feedback">
+                    <div *ngIf="f.language.errors.required">
+                      Language is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <div class="form-group">
+                  <label>Rater Name</label>
+                  <input type="text" placeholder="Rater Name" name="ratername" class="form-control"
+                    [readonly]="raterNameReadonly" formControlName="ratername"
+                    [ngClass]="{'is-invalid': submitted && f.ratername.errors }">
+                  <div *ngIf="submitted && f.ratername.errors" class="invalid-feedback">
+                    <div *ngIf="f.ratername.errors.required">
+                      Rater Name is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row pb-2">
+
+        <div class="col-12 text-right">
+          <!-- <button class="btn btn-main btn-darkB" [disabled]="!addRaterForm.valid"><i class="fa fa-plus "></i>Add Rater</button> -->
+          <button class="btn btn-main btn-darkB" [disabled]="addRaterButton"><i class="fa fa-plus "></i>Add
+            Rater</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Rater Dynamic UI -->
+    <div *ngIf="raterFormDeepCopy.length > 0">
+      <div class="row" *ngFor="let item of raterFormDeepCopy | keyvalue; let i = index">
+        <div class="col">
+          <div class="AddTile">
+            <div class="row" style="margin-bottom: 6px !important;">
+              <div class="col pt-2 text-center">
+                <a>
+                  <button style="border: none;background: transparent;" (click)="deleteConfirmation(i, $event)"
+                    [disabled]="deleteButtonDisabled"><i class="fa fa-trash"></i></button>
+                </a>
+              </div>
+              <div class="col-3 pt-2">{{item.value['description']['name']}} ({{item.value['language']['name']}})
+              </div>
+              <div class="col-3 pt-2">
+                <span *ngFor="let admindata of item.value['adminOption']; let isLast=last">
+                  <span>{{admindata['name']}} {{isLast ? '' : ', '}} </span>
+                </span>
+              </div>
+              <div class="col-2 pt-2">James Peterson ({{item.value['ratertype']['rater']}})</div>
+              <div class="col-3">
+                <div class="form-group p-1 m-0">
+                  <div *ngIf="shortURL.length > 0">
+                    <input type="text" name="shortURLField" id="shortURLField" [readOnly]="shotURLFieldReadonly"
+                      [(ngModel)]="shortURL[i]['assessmentLink']" value="{{shortURL[i]['assessmentLink']}}"
+                      class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="generateLinkButton" style="margin-top: 7px !important;">
+        <div class="col-12 text-right">
+          <a class="pointerClass">
+            <button type="button" class="btn btn-main btn-darkB" (click)="openConfirmationDialog()"
+              [disabled]="generateLinkBtnDisabled"><i class="fa fa-link"></i>Generate Link</button>
+          </a>
+
+          <!-- <button class="pointerClass" type="button" class="btn btn-main btn-darkB" (click)="goToComposeEmail()"
+            [disabled]="composeEmailButtonDisabled">
+            <i class="fa fa-envelope-o"></i>Compose Email
+          </button> -->
+
+          <button class="pointerClass" type="button" class="btn btn-main btn-darkB" (click)="sentToMyChart()" [disabled]="sendToMyChartButtonDisabled">
+            <i class="fa fa-envelope-o"></i>Send To MyChart
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="this.resultError">
+    Error: {{this.resultError}}
+    <p>Redirecting...</p>
+  </div>
+
+</div>
+
+<!-- primeNg success toast message -->
+<p-toast position="bottom-center" key="bc"></p-toast>
+
+<!-- primaNg confirm dialog api -->
+<p-confirmDialog [style]="{width: '30vw'}" [baseZIndex]="10000"></p-confirmDialog>
+
+<!-- material alert dialog -->
+<ng-template #myDialog>
+  <h2 matDialogTitle>Warning!</h2>
+  <mat-dialog-content>
+    <p>Record already exist. Try adding with different record.</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose color="primary">Dismiss</button>
+  </mat-dialog-actions>
+</ng-template>
+
+<ng-http-loader spinner="sk-wave"></ng-http-loader>

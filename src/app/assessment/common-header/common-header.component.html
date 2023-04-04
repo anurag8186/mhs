@@ -1,0 +1,9 @@
+<div class="row fixed-top Header">
+  <div class="col-4 PageHeading">
+    <h2>{{headerPageTitle}}</h2>
+  </div>
+  <div class="col-8 text-right UserName" *ngIf="currentUser">
+    <p>{{currentUser.PatientFName}} {{currentUser.PatientLName}}</p>
+    <span>{{currentUser.PatientGender | titlecase}} | Date of Birth: ({{currentUser.PatientDOB | date: 'dd/MM/yyyy'}}) | Age ({{currentUserAge}})</span>
+  </div>
+</div>

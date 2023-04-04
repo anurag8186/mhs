@@ -1,0 +1,132 @@
+<!-- <div class="container-fluid PageBody">
+  <app-common-header headerPageTitle="{{ headerPageTitle }}"></app-common-header>
+  <div align="center"><h3>generate-report works!</h3></div>
+</div> -->
+
+<ng-template #templateName class="container-fluid PageBody">
+  <div class="row">
+    <div class="col-12 PageHeading">
+    </div>
+  </div>
+</ng-template>
+
+<div *ngIf="isValidData; else templateName" class="container-fluid PageBody">
+  <app-common-header headerPageTitle="{{ headerPageTitle }}"></app-common-header>
+
+  <form [formGroup]="generateReportForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-6">
+        <div class="d-flex flex-row">
+          <div class="PageHeading">
+            <h2>Conners 4</h2>
+          </div>
+          <div class="p-2">
+            <div class="form-group"><select class="form-control">
+                <option>Select</option>
+                <option selected>Single Rater Report</option>
+              </select></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 text-right">
+        <a [routerLink]="['/NewAssesment']"><button type="button" class="btn btn-main btn-lightB">
+            <i class="fa fa-plus-circle"></i>New Assessment</button>
+        </a>
+        <a [routerLink]="['/assesmentHistory']"><button type="button" class="btn btn-main btn-lightB"><i
+              class="fa fa-history"></i>Assessment History</button></a>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 PageHeading">
+        <h3>Scoring Options <span>Select the scoring options you wish to include in your report</span></h3>
+      </div>
+      <div class="col">
+        <div class="listTile">
+          <div class="row pt-2" *ngIf="ScoreOption">
+            <div class="col-6 mg-20" *ngFor="let key of Object.keys(ScoreOption); let i = index">
+              <div class="row">
+                <!-- label/tag -->
+                <div class="col-12 pb-2">
+                  {{ScoreOption[key].label ? ScoreOption[key].label : ScoreOption[key].tag}}
+                </div>
+                <!-- sub-label -->
+                <div class="col-12 pb-2" *ngIf="ScoreOption[key].sublabel">
+                  <small><strong>
+                      {{ScoreOption[key].sublabel ? ScoreOption[key].sublabel : ''}}
+                    </strong></small>
+                </div>
+                <!-- Dependent Control -->
+                <div class="col-12">
+                  <div class="form-check" *ngFor="let data of ScoreOption[key].DependentControl; let j = index">
+                    <label class="form-check-label" title="{{data.ToolTip ? data.ToolTip : ''}}">
+                      <!-- if data type == 0, then only plain text will show -->
+                      <span *ngIf="data.type !== 0">
+                        <input *ngIf="data.type == 1" 
+                        type="checkbox" 
+                        class="form-check-input" 
+                        value="{{data.name}}"
+                        (change)="onCheckboxChange(ScoreOption[j], $event)" 
+                        [disabled]="data.isDisabled == true ? true : false">
+
+                        <input *ngIf="data.type == 2" 
+                        type='radio' 
+                        class="form-check-input" 
+                        [value]="data.name"
+                        formControlName="scoreOptionRadioButtonArray" 
+                        name="scoreOptionRadioButtonArray"
+                       
+                        [disabled]="data.isDisabled == true ? true : false">
+                      </span>
+                      {{data.name}}
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pt-2">
+
+      <div class="col-12 PageHeading">
+        <h3>Report Options <span>Customize your report by selecting the sections you wish to include.</span></h3>
+      </div>
+      <div class="col">
+        <div class="listTile">
+          <div class="row">
+            <ng-container *ngFor="let reportOption of reportOptionData; let i = index">
+              <div class="col-6">
+                <div class="form-check">
+                  <label class="form-check-label" title="{{reportOption.ToolTip}}">
+                    <input type="checkbox" 
+                    class="form-check-input" 
+                    value="{{reportOption.name}}"
+                    (change)="reportOptionCheckBoxChange(reportOption[i], $event)" >
+                    {{reportOption.name}}
+                  </label>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pb-4 pt-2">
+      <div class="col-12 text-right">
+        <a href="javascript:void(0)" [routerLink]="['/assesmentHistory']"><button type="button"
+            class="btn btn-main btn-darkB">Cancel</button></a>
+        <a href="javascript:void(0)" (click)="openConfirmationDialog()"><button type="button" class="btn btn-main btn-darkB">View Response</button></a>
+        <a><button type="submit" class="btn btn-main btn-darkB" [disabled]="!generateReportForm.valid"><i class="fa fa-cog"></i>Generate Report</button></a>
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+<ng-http-loader spinner="sk-wave"></ng-http-loader>

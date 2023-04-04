@@ -1,0 +1,242 @@
+.ListTile {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #5396E4;
+  background: #f7f7f7;
+  margin-bottom: 7px;
+  padding: 4px;
+  color: #00489D;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.ListTile img {
+  max-width: 60px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #5396E4;
+}
+
+.FormTile {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #DEE9FD;
+  background: #EEF4FF;
+  margin-bottom: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #00489D;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+label {
+  color: #00489D;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border-color: #bcd1ea;
+  margin: 0;
+}
+
+input[type="text"] {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  /* border-color: #bcd1ea; */
+  margin: 0;
+  padding: 4px;
+  background-color: #fff;
+}
+
+select {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border-color: #bcd1ea;
+  margin: 0;
+  padding: 4px;
+  height: 30px !important;
+}
+
+select {
+  -webkit-appearance: listbox !important
+}
+
+.AddTile {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #a5b7cd;
+  background: #f7f7f7;
+  margin-bottom: 7px;
+  padding: 4px;
+  color: #00489D;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin-bottom: 4px;
+  padding-left: 4px;
+}
+
+.shadowbox {
+  -webkit-box-shadow: 1px 1px 2px 2px #dfdfdf;
+  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 1px 1px 2px 2px #dfdfdf;
+  /* Firefox 3.5 - 3.6 */
+  box-shadow: 1px 1px 2px 2px #dfdfdf;
+  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.btn-back {
+  font-size: 14px;
+  padding-top: 8px;
+  color: #fff;
+  border: none;
+  text-align: center !important;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-weight: normal !important;
+  margin: 1px 5px 1px 5px;
+  margin-bottom: 10px;
+}
+
+.btn-back i {
+  margin-right: 6px;
+  color: #fff !important;
+  font-size: 16px !important;
+}
+
+
+.btn-main {
+
+  font-size: 14px;
+  min-width: 130px;
+  padding-top: 8px;
+  color: #fff;
+  border: none;
+  text-align: center !important;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-weight: normal !important;
+  margin: 1px 5px 1px 5px;
+  margin-bottom: 7px;
+}
+
+.btn-lightB {
+  background: #5396E4 !important;
+  color: #fff;
+}
+
+.btn-darkB {
+  background: #1B56AB;
+  color: #fff;
+}
+
+.btn-main i {
+  margin-right: 5px;
+  color: #fff !important;
+  font-size: 16px !important;
+}
+
+.btn-icon {
+  background: #EEF4FF !important;
+  color: #00489D;
+  border: 1px solid #00489D;
+  font-size: 14px;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+a .btn-icon:hover {
+  text-decoration: none;
+}
+
+.btn-icon i {
+  font-size: 20px;
+}
+
+.pt-2 i {
+  cursor: pointer;
+}
+
+.select-all {
+  margin: 5px 17px;
+}
+
+mat-select {
+  font-size: 13px !important;
+  font-weight: normal !important;
+  border-color: #bcd1ea;
+  margin: 0;
+  padding: 5px;
+  height: 30px !important;
+  background-color: #fff;
+}
+
+::ng-deep .cdk-overlay-connected-position-bounding-box {
+  margin-top: 38px !important;
+  width: 16.666667% !important;
+}
+
+::ng-deep div.cdk-overlay-pane {
+  transform: translateX(-7px) translateY(-13px) !important;
+}
+
+::ng-deep div.mat-select-panel {
+  min-width: calc(70% + 64px) !important;
+}
+
+.pointerClass{
+  cursor: pointer;
+}
+
+::ng-deep .tablecaption{
+  font-weight: normal;
+  font-size: 13px;
+}
+
+::ng-deep .p-confirm-dialog-message{
+  width: 100% !important;
+  margin-left: 0px !important;
+}
+
+::ng-deep .p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
+  margin-right: 5px;
+}
+
+::ng-deep .AddTile1 {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #a5b7cd;
+  background: #f7f7f7;
+  margin-bottom: 7px;
+  padding: 4px;
+  color: #00489D;
+  font-size: 13px !important;
+  font-weight: 400!important;
+  margin-bottom: 4px;
+  padding-left: 4px;
+}
+
+::ng-deep .col1 {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+::ng-deep ngb-modal-backdrop{
+  z-index: 0 !important;
+}

@@ -1,0 +1,48 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ title }}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <!-- <div class="modal-body" > -->
+  <!-- {{message}} -->
+  <div class="row">
+    <div class="MsgText pb-2">
+      Please review the following. To make changes, click CANCEL. To Continue, click YES
+    </div>
+  </div>
+  <div class="row">
+    <div class="col1">
+      <table class="table table-condensed table-hover table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>RATER NAME</th>
+            <th>FORM TYPE(S)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of this.message | keyvalue; let i = index">
+            <td>{{item.value.ratername}}</td>
+            <td>
+              {{item.value['description']['name']}} ({{item.value['language']['name']}})
+              <!-- <span *ngFor="let admindata of item.value['adminOption']; let isLast=last">
+                <span>{{admindata['name']}} {{isLast ? '' : ', '}} </span>
+              </span> -->
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="MsgText pb-2">
+      <strong>Note: Once confirmed, page will be freezed and no further editing will be allowed.</strong>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="decline()">{{ btnCancelText }}</button>
+    <button type="button" class="btn btn-primary btn-darkB" (click)="accept()">{{ btnOkText }}</button>
+  </div>
+</div>

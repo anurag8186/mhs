@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>
+    {{title}}
+  </h1>
+  
+  <div mat-dialog-content>
+    <p>{{message}}</p>
+  </div>
+  
+  <div mat-dialog-actions *ngIf="actionButton" class="pull-right">
+    <button mat-raised-button (click)="onDismiss()" color="primary">Okay</button>
+    <!-- <button mat-raised-button color="primary" (click)="onConfirm()">Yes</button> -->
+  </div>

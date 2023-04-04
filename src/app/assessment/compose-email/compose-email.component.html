@@ -1,0 +1,80 @@
+<div class="container-fluid PageBody">
+  <app-common-header headerPageTitle="{{ headerPageTitle }}"></app-common-header>
+
+  <div class="row">
+    <div class="col-12 text-right"><a href="#" routerLink="/assesmentHistory"><button type="button"
+          class="btn btn-main btn-lightB"><i class="fa fa-history"></i>Assessment History</button></a></div>
+    <div class="col-12 PageHeading">
+      <h3>Compose Email</h3>
+    </div>
+  </div>
+  <form [formGroup]="composeEmailForm">
+    <div class="row">
+      <div class="col">
+
+        <div class="FormTile" *ngFor="let data of assessmentData;let i = index">
+          <div class="row pt-1">
+            <div class="col-12"><strong>{{data['description']['name']}} {{data['ratertype']['rater']}}
+                {{data['language']['name']}}</strong>
+            </div>
+          </div>
+          <div class="row pt-1">
+            <div class="col-4">
+              <div class="form-group">
+                <label>Client Name</label>
+                <input name="clientName" type="text" [formControlName]="data['ratername']" class="form-control"
+                  #clientName>
+                <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback"></div> -->
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label>Client Email ID</label>
+                <input name="clientEmail{{i}}" [readOnly]="data['ratertype']['rater'] == 'Self-Report' ? true : false"
+                  type="text" [formControlName]="data['ratertype']['rater']" autocomplete="off"
+                  placeholder="Client Email ID" class="form-control">
+
+                <p class="error"
+                  *ngIf="composeEmailForm.touched && composeEmailForm.controls[data['ratertype']['rater']].invalid">
+                  {{ getError(data['ratertype']['rater'], 'email') }}
+                </p>
+
+                <!-- <div *ngIf="composeEmailForm.get(data['ratertype']['rater'])!.invalid && 
+                  (composeEmailForm.get(data['ratertype']['rater'])!.dirty || 
+                  composeEmailForm.get(data['ratertype']['rater'])!.touched)" style="color:red">Please enter valid email</div> -->
+
+                <!-- <div *ngIf="submitted && f.data['ratertype']['rater'].errors" class="invalid-feedback">
+                    <div *ngIf="f.data['ratertype']['rater'].errors.required">Email is required</div>
+                    <div *ngIf="f.data['ratertype']['rater'].errors.email">
+                      Email must be a valid email address
+                    </div>
+                  </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-right">
+        <a class="pointer" (click)="emailDialog()">
+          <button type="button" class="btn btn-main btn-darkB"><i class="fa fa-newspaper-o "></i>Preview Email </button>
+        </a>
+        <a class="pointer" (click)="emailconfirmationDialog()">
+        <!-- <a class="pointer" (click)="sendEmailFromComposeEmailPage()"> -->
+          <button type="button" class="btn btn-main btn-darkB"><i class="fa fa-envelope-o"></i>Send Email </button>
+        </a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- primeNg success toast message -->
+<p-toast position="bottom-center" key="bc"></p-toast>
+
+<!-- primaNg confirm dialog api -->
+<p-confirmDialog [style]="{width: '30vw'}" [baseZIndex]="10000"></p-confirmDialog>
+
+<ng-http-loader spinner="sk-wave" *ngIf="sendEmailButtonClicked"></ng-http-loader>

@@ -1,0 +1,149 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto-regular-webfont.eot');
+    src: url('../fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/roboto-regular-webfont.woff') format('woff'),
+         url('../fonts/roboto-regular-webfont.ttf') format('truetype'),
+         url('../fonts/roboto-regular-webfont.svg#RobotoThinItalic') format('svg');
+    font-weight: 200;
+    font-style: italic;
+}
+body {
+    margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+.Header
+{
+background: #e5effb; border-bottom:1px solid #86b8f3;padding:7px; padding-left:10px;	padding-right:10px; 
+	
+}
+.PageHeading h2
+{
+	
+	margin:0 !important;
+	padding: 0 !important;
+	
+}
+.PageHeading h2
+{
+	color:#1B56AB;
+	font-size:20px !important;
+	font-weight: 500!important;
+	margin:0 !important;
+	padding: 0 !important;
+	margin-top:10px!important;
+}
+.PageHeading h3
+{
+	color:#1B56AB;
+	font-size:16px !important;
+	font-weight: 500!important;
+	margin:0 !important;
+	padding: 0 !important;
+	margin-bottom:7px!important;
+}
+.PageBody
+{
+	margin-top:67px;
+}
+.UserName p
+{
+	color:#1B56AB;
+	font-size:15px !important;
+	font-weight: 600!important;
+	margin:0 !important;
+	padding:0 !important;
+}
+.UserName span
+{
+	color:#1B56AB;
+	font-size:14px !important;
+	font-weight: 400!important;
+	margin:0 !important;
+	padding:0 !important;
+}
+.UserName span a
+{
+	color:#1B56AB;
+	font-size:14px !important;
+	font-weight: 400!important;
+	margin:0 !important;
+	padding:0 !important;
+	text-decoration: none;
+}
+.MsgText
+{
+	color:#2A2A2A;
+	font-size:12px !important;
+	font-weight: 400!important;	
+	padding-top:10px;
+}
+
+.btn-main{
+  
+   font-size: 14px;
+   min-width:130px;
+  padding-top:8px;
+   color:#fff;
+   border:none;
+    text-align:center !important;  
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+	font-weight:normal!important;
+	margin:1px 5px 1px 5px;
+	margin-bottom: 7px;
+}
+.btn-lightB
+{
+	 background:#5396E4 !important;
+     color:#fff;
+}
+.btn-darkB
+{
+	 background:#1B56AB;
+	color:#fff;
+}
+.btn-main i
+{
+	margin-right:5px;
+	color:#fff!important;
+	font-size:16px!important;
+}
+td i {
+	color:#5396E4!important;
+	font-size:20px!important;
+}
+td a 
+{
+color:#1B56AB;	
+text-decoration: underline;	
+}
+.custom-table th
+{
+	
+	background: #e4effa;
+	padding:7px;
+	color:#1B56AB;
+	font-size:14px !important;
+	font-weight: 500!important;
+	border-color: #bcd1ea;
+	border-bottom: 2px solid #bcd1ea !important;
+}
+.custom-table td
+{
+	
+	color:#191919;
+	padding:7px;
+	color:#191919;
+	font-size:14px !important;
+	font-weight: 400!important;
+	border-color: #bcd1ea;
+}
+.RowAlt
+{
+	background: #f9f9f9;
+}

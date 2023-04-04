@@ -1,0 +1,100 @@
+<!-- modal -->
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Preview Email</h5>
+  <button type="button" class="close" (click)="decline()" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="saveTemplateForm">
+    <div class="row col-md-12">
+      <div class="row">
+        <p *ngIf="defaultTemplateInput"><strong>Email:</strong></p>
+        <div class="form-group" *ngIf="defaultTemplateInput">
+          <label for="email"><small>1. Select a template to use for the invitation:</small></label>
+          <div class="input-group col-sm-10" style="padding-left:2px">
+            <select class="form-control" #templateName (change)="onSelectedTemplateName($event, templateName.value)">
+              <!-- <option>Select option..</option> -->
+              <option *ngFor="let option of templateResult" [ngValue]="option">{{option['name']}}</option>
+            </select>
+            <span class="input-group-btn col-sm-4">
+              <button class="btn btn-secondary" type="button">
+                Delete
+              </button>
+            </span>
+          </div>
+        </div>
+        <!-- condition based save new template name-->
+        <div class="form-group" *ngIf="saveNewTemplateInput">
+          <label for="email"><small>1. New Template Name::</small></label>
+          <div class="input-group col-sm-10" style="padding-left:2px">
+            <input type="text" formControlName="templateNameNew" autocomplete="off" placeholder="New Template Name"
+              class="form-control" id="email">
+            <span class="input-group-btn col-sm-4">
+              <button class="btn btn-secondary" type="button" (click)="discardTemplate()">
+                Discard
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div><small>2. Enter the text the participant will receive the email:</small> </div>
+          <label for="subject"><small>Subject:</small></label>
+          <input type="text" formControlName="subject" class="form-control" [(ngModel)]="templateSubject"
+            placeholder="Email Subject">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+
+          <small >Email Body:</small> 
+
+          <div class="col-sm-6" style="margin-left: 140px; display: inline-block;">
+            <select class="form-control col-sm-12" style="margin-left: 145px; height: calc(2rem + 2px) !important; margin-bottom: 11px;">
+              <option>Select a field to Insert</option>
+              <option>Rater</option>
+              <option>Assessment Name</option>
+              <option>Assesment Link</option>
+              <option>Client First Name</option>
+              <option>Client Last Name</option>
+              <option>Client Id</option>
+              <option>Rater Name/Id</option>
+              <option>Rater Email</option>
+              <option>Contact Name</option>
+              <option>Contact Email Address</option>
+              <option>Assessment Time</option>
+            </select>
+          </div>
+          
+          <ckeditor [editor]="editor" [data]="ckEditorData" [(ngModel)]="ckEditorData" formControlName="EmailBody"
+            name="ckeditor_text"></ckeditor>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <div class="float-left" style="color:red;" *ngIf="templateErrorMessage">
+    <h6 class="float-left">{{templateErrorMessage}}</h6>
+  </div>
+  <div style="color:red;" *ngIf="this.addTemplateServerResponse">
+    <h6 style="color: green;" *ngIf="addTemplateServerResponse"><i class="fa fa-check"></i> {{addTemplateServerResponse}}</h6>
+  </div>
+  <div style="color:red;" *ngIf="this.sendEmailFlag">
+    <h6 style="color: green;" *ngIf="emailIsInProgress">
+      <i class="fa fa-refresh"></i> Sending email... please wait
+    </h6>
+    <h6 style="color: green;" *ngIf="emailSuccess">
+      <i class="fa fa-check"></i> {{emailResponse}}
+    </h6>
+  </div>
+  <button type="button" [disabled]="this.templateErrorStatus" class="btn btn-primary btn-darkB  pull-right" (click)="accept()"><i class="fa fa-save"></i> Save Template
+  </button>
+  <button type="button"  class="btn btn-primary btn-darkB  pull-right" (click)="sendEmail()">
+    <i class="fa fa-envelope-o"></i> Send Email
+  </button>
+</div>
+
+<ng-http-loader spinner="sk-wave"></ng-http-loader>

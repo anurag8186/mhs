@@ -1,0 +1,152 @@
+/* Important part */
+.modal-dialog {
+  overflow-y: initial !important
+}
+
+.modal-body {
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-title {
+  color: #1B56AB;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-top: 10px !important;
+}
+
+.MsgText {
+  color: #2A2A2A;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  padding-top: 10px;
+}
+
+.pb-2 .py-2 {
+  padding-bottom: 0.5rem !important;
+}
+
+.btn-darkB {
+  background: #1B56AB;
+  color: #fff;
+}
+
+.table-condensed>thead>tr>th,
+.table-condensed>tbody>tr>th,
+.table-condensed>tfoot>tr>th,
+.table-condensed>thead>tr>td,
+.table-condensed>tbody>tr>td,
+.table-condensed>tfoot>tr>td {
+  font-size: 13px;
+  padding: 5px;
+}
+
+::ng-deep .modal-backdrop {
+  z-index: -1 !important;
+  background-color: transparent !important;
+}
+
+/* 
+.CircleG {
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #707070;
+  height: 30px;
+  width: 30px;
+  padding-top: 1px;
+  color: #2A2A2A;
+  font-size: 18px;
+  font-weight: 500;
+} */
+
+.col {
+  font-size: 12px !important;
+  width: 25% !important;
+}
+
+.p-3 {
+  width: 25px !important;
+  font-size: 11px !important;
+  margin-top:16px !important
+}
+
+.p-4 {
+  width: 99% !important;
+}
+
+.card-body {
+  font-size: 12px;
+}
+
+
+div.ex2 {
+  max-width: 500px;
+  margin: auto;
+  border: 3px solid #73AD21;
+}
+
+.CircleG {
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #707070;
+  height: 20px;
+  width: 20px;
+  padding-top: 1px;
+  color: #2A2A2A;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.CircleB {
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  background: #5396E4;
+  border: 1px solid #707070;
+  height: 20px;
+  width: 20px;
+  /* height: 30px;
+  width: 30px; */
+  padding-top: 1px;
+  color: #fff;
+  font-size: 11px;
+  /* font-size: 18px; */
+  font-weight: 500;
+}
+
+.SquareG {
+  background: #fff;
+  border: 1px solid #707070;
+  height: 20px;
+  width: 20px;
+  /* height: 30px;
+  width: 30px; */
+  padding-top: 1px;
+  color: #2A2A2A;
+  font-size: 11px;
+  /* font-size: 18px; */
+  font-weight: 500;
+}
+
+.SquareB {
+  background: #5396E4;
+  border: 1px solid #707070;
+  height: 20px;
+  width: 20px;
+  /* height: 30px;
+  width: 30px; */
+  padding-top: 1px;
+  color: #FFF;
+  font-size: 11px;
+  /* font-size: 18px; */
+  font-weight: 500;
+}

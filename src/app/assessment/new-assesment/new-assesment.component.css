@@ -1,0 +1,115 @@
+.PageBody {
+	margin-top: 67px;
+}
+.col-1 {
+  flex: 0 0 8.333333%;
+  max-width: 8.333333%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.ListTile {
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #5396E4;
+    background: #f7f7f7;
+    margin-bottom: 7px;
+    padding: 4px;
+    color: #00489D;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+  }
+
+  .ListTile img {
+    max-width: 60px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #5396E4;
+  }
+  
+  .TileHeading h4 {
+    color: #1B56AB;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 4px !important;
+    margin-bottom: 2px !important;
+  }
+
+  .TileHeading h3 {
+    color: #1B56AB;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .TileHeading span {
+    color: #2A2A2A;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-right: 7px !important;
+  }
+
+  .MsgText {
+    color: #2A2A2A;
+    font-size: 13px !important;
+    font-weight: 400!important;
+    padding-top: 10px;
+  }
+
+  .btn-main {
+
+    font-size: 14px;
+    min-width: 130px;
+    padding-top: 8px;
+    color: #fff;
+    border: none;
+    text-align: center !important;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -khtml-border-radius: 6px;
+    border-radius: 6px;
+    font-weight: normal !important;
+    margin: 1px 5px 1px 5px;
+    margin-bottom: 7px;
+  }
+  
+  .btn-lightB {
+    background: #5396E4 !important;
+    color: #fff;
+  }
+  
+  .btn-darkB {
+    background: #1B56AB;
+    color: #fff;
+  }
+  
+  .btn-main i {
+    margin-right: 5px;
+    color: #fff !important;
+    font-size: 16px !important;
+  }
+  
+  .btn-icon {
+    background: #EEF4FF !important;
+    color: #00489D;
+    border: 1px solid #00489D;
+    font-size: 14px;
+    margin-left: 5px;
+    text-decoration: none;
+  }
+  
+  a .btn-icon:hover {
+    text-decoration: none;
+  }
+  
+  .btn-icon i {
+    font-size: 20px;
+  }

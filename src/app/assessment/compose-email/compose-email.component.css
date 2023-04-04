@@ -1,0 +1,121 @@
+.PageBody {
+  margin-top: 67px;
+}
+
+.UserName p {
+  color: #1B56AB;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.UserName span {
+  color: #1B56AB;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.UserName span a {
+  color: #1B56AB;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-decoration: none;
+}
+
+.MsgText {
+  color: #2A2A2A;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  padding-top: 10px;
+}
+
+.btn-main {
+
+  font-size: 14px;
+  min-width: 130px;
+  padding-top: 8px;
+  color: #fff;
+  border: none;
+  text-align: center !important;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-weight: normal !important;
+  margin: 1px 5px 1px 5px;
+  margin-bottom: 7px;
+}
+
+.btn-lightB {
+  background: #5396E4 !important;
+  color: #fff;
+}
+
+.btn-darkB {
+  background: #1B56AB;
+  color: #fff;
+}
+
+.btn-main i {
+  margin-right: 5px;
+  color: #fff !important;
+  font-size: 16px !important;
+}
+
+.btn-icon {
+  background: #EEF4FF !important;
+  color: #00489D;
+  border: 1px solid #00489D;
+  font-size: 14px;
+  margin-left: 4px;
+  text-decoration: none;
+}
+
+a .btn-icon:hover {
+  text-decoration: none;
+}
+
+.btn-icon i {
+  font-size: 20px;
+}
+
+.FormTile {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #DEE9FD;
+  background: #EEF4FF;
+  margin-bottom: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #00489D;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+label {
+  color: #00489D;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  border-color: #bcd1ea;
+  margin: 0;
+}
+
+.pointerClass {
+  cursor: pointer;
+}
+
+::ng-deep ngb-modal-backdrop {
+  z-index: 0 !important;
+}
+
+.error {
+  color: red;
+  font-size: .75em;
+}

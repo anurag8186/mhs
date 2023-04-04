@@ -1,0 +1,29 @@
+.btn-darkB {
+  background: #1B56AB;
+  color: #fff;
+}
+
+.btn-main i {
+  margin-right: 5px;
+  color: #fff !important;
+  font-size: 16px !important;
+}
+.modal-title {
+  color: #1B56AB;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-top: 10px !important;
+}
+
+.modal-body {
+  height: 350px !important;
+  max-height: calc(100vh - 200px) !important;
+  overflow-y: auto !important;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 300px !important;
+}
+
